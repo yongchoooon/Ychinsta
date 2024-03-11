@@ -1,0 +1,20 @@
+version: "3"
+networks:
+  ychinsta:
+    external: false
+
+services:
+  webserver:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    container_name: ychinsta_wevserver
+    env_file: ./.env
+    restart: always
+    ports:
+      - "60133:60133"
+    volumes:
+      - ".:/workspace"
+    networks:
+      - ychinsta
+    command: uvicorn main:app --port 60133 --host 0.0.0.0 --reload
