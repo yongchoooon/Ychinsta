@@ -2,9 +2,9 @@ import glob
 import json
 
 # data를 json 파일로 저장
-def save_json(username, filename, now, data):
+def save_json(username, now, data):
     num = len(glob.glob(f'logs/{username}_*.json')) + 1
-    file_path = 'logs/' + filename + '_' + now + '_' + f'{num:04d}' + '.json'
+    file_path = 'logs/' + username + '_' + now + '_' + f'{num:04d}' + '.json'
 
     with open(file_path, 'w', encoding='utf-8') as file:
         json.dump(data, file, ensure_ascii=False, indent=4)
