@@ -45,7 +45,7 @@ def login_ych():
     return {"message" : "login success"}
 
 @app.get("/login_other")
-def login_ych(username, password):
+def login_other(username, password):
     global api, NOW_USER
     try:
         api = Client(username, password)
