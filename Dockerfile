@@ -11,4 +11,4 @@ COPY . /workspace/
 RUN pip install -U pip && \
     pip install -r requirements.txt
 
-EXPOSE 60133
+EXPOSE 8080

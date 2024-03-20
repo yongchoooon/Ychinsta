@@ -12,9 +12,9 @@ services:
     env_file: ./.env
     restart: always
     ports:
-      - "60133:60133"
+      - "8080:8080"
     volumes:
       - ".:/workspace"
     networks:
       - ychinsta
-    command: uvicorn main:app --port 60133 --host 0.0.0.0 --reload
+    command: uvicorn main:app --port 8080 --host 0.0.0.0 --reload

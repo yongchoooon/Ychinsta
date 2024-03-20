@@ -38,9 +38,8 @@ def login_ych():
     global api, NOW_USER
     try:
         api = Client(USERNAME, PASSWORD)
-    except instagram_private_api.errors.ClientConnectionError:
-        time.sleep(2)
-        api = Client(USERNAME, PASSWORD)
+    except Exception as e:
+        raise HTTPException(status_code = 400, detail = str(e))
     NOW_USER = USERNAME
     return {"message" : "login success"}
 
@@ -49,9 +48,8 @@ def login_other(username, password):
     global api, NOW_USER
     try:
         api = Client(username, password)
-    except instagram_private_api.errors.ClientConnectionError:
-        time.sleep(2)
-        api = Client(username, password)
+    except Exception as e:
+        raise HTTPException(status_code = 400, detail = str(e))
     NOW_USER = username
     return {"message" : "login success"}
 
